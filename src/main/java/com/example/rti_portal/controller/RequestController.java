@@ -58,6 +58,11 @@ public class RequestController {
         return ResponseEntity.ok(updated);
     }
 
+    @PostMapping("/flag-overdue")
+    public List<Request> flagOverdue() {
+        return requestService.flagOverdueRequests();
+    }
+
     @GetMapping("/{id}/history")
     public List<StatusHistory> getHistory(@PathVariable Long id) {
         return requestService.getHistoryForRequest(id);
