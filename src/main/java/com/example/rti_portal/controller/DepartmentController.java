@@ -25,7 +25,7 @@ public class DepartmentController {
     }
 
     @PostMapping
-    public Department create(@RequestBody Department department) {
+    public Department create(@jakarta.validation.Valid @RequestBody Department department) {
         return departmentRepository.save(department);
     }
 

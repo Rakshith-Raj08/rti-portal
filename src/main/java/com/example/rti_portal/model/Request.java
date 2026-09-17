@@ -19,6 +19,7 @@ public class Request {
     @JoinColumn(name = "department_id", nullable = false)
     private Department department;
 
+     @jakarta.validation.constraints.NotBlank(message = "Subject is required")
     @Column(nullable = false)
     private String subject;
 

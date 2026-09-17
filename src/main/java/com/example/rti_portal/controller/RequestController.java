@@ -40,7 +40,7 @@ public class RequestController {
     }
 
     @PostMapping
-    public ResponseEntity<Request> createRequest(@RequestBody CreateRequestBody body) {
+    public ResponseEntity<Request> createRequest(@jakarta.validation.Valid @RequestBody CreateRequestBody body) {
         User user = userRepository.findById(body.userId())
                 .orElseThrow(() -> new RuntimeException("User not found: " + body.userId()));
         Department department = departmentRepository.findById(body.departmentId())
@@ -80,8 +80,12 @@ public class RequestController {
         return requestService.getRequestsByStatus(status);
     }
 
-    public record CreateRequestBody(Long userId, Long departmentId, String subject,
-                                     String description, RequestType requestType) {}
+        public record CreateRequestBody(
+            @jakarta.validation.constraints.NotNull Long userId,
+            @jakarta.validation.constraints.NotNull Long departmentId,
+            @jakarta.validation.constraints.NotBlank String subject,
+            String description,
+            @jakarta.validation.constraints.NotNull RequestType requestType) {}
 
     public record UpdateStatusBody(RequestStatus status, String changedBy, String note) {}
 }

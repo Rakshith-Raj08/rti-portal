@@ -10,6 +10,7 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @jakarta.validation.constraints.NotBlank(message = "Department name is required")
     @Column(nullable = false)
     private String name;
 
@@ -17,6 +18,7 @@ public class Department {
 
     private String contactOfficer;
 
+     @jakarta.validation.constraints.Min(value = 1, message = "SLA days must be at least 1")
     @Column(nullable = false)
     private Integer slaDays = 30;
 
