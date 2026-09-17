@@ -1,0 +1,6 @@
+$kind: http-request
+name: http://localhost:8080/api/requests/6/history
+description: ""
+url: http://localhost:8080/api/requests/6/history
+method: GET
+order: 4503358601504992

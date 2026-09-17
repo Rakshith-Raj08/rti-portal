@@ -1,0 +1,17 @@
+$kind: http-request
+name: http://localhost:8080/api/requests/4/status
+description: ""
+url: http://localhost:8080/api/requests/4/status
+method: PATCH
+body:
+  type: json
+  content: "{\r
+
+    \  \"status\": \"IN_PROGRESS\",\r
+
+    \  \"changedBy\": \"officer_1\",\r
+
+    \  \"note\": \"Reviewing request\"\r
+
+    }"
+order: 4454249963986267

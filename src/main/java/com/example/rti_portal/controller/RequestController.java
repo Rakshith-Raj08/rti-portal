@@ -54,8 +54,20 @@ public class RequestController {
 
     @PatchMapping("/{id}/status")
     public ResponseEntity<Request> updateStatus(@PathVariable Long id, @RequestBody UpdateStatusBody body) {
-        Request updated = requestService.updateStatus(id, body.status());
+        Request updated = requestService.updateStatus(id, body.status(), body.changedBy(), body.note());
         return ResponseEntity.ok(updated);
+    }
+
+    @GetMapping("/{id}/history")
+    public List<StatusHistory> getHistory(@PathVariable Long id) {
+        return requestService.getHistoryForRequest(id);
+    }
+
+    @GetMapping("/{id}/appeal")
+    public ResponseEntity<Appeal> getAppeal(@PathVariable Long id) {
+        return requestService.getAppealForRequest(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/status/{status}")
@@ -66,5 +78,5 @@ public class RequestController {
     public record CreateRequestBody(Long userId, Long departmentId, String subject,
                                      String description, RequestType requestType) {}
 
-    public record UpdateStatusBody(RequestStatus status) {}
+    public record UpdateStatusBody(RequestStatus status, String changedBy, String note) {}
 }

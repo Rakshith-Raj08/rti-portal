@@ -1,0 +1,19 @@
+$kind: http-request
+name: http://localhost:8080/api/departments
+description: ""
+url: http://localhost:8080/api/departments
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Ministry of Testing\",\r
+
+    \  \"jurisdiction\": \"Central\",\r
+
+    \  \"contactOfficer\": \"A. Sharma\",\r
+
+    \  \"slaDays\": 30\r
+
+    }"
+order: 4199863321009855

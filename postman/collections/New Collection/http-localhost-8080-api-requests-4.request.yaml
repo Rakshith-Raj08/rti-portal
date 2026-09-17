@@ -1,0 +1,21 @@
+$kind: http-request
+name: http://localhost:8080/api/requests
+description: ""
+url: http://localhost:8080/api/requests
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"userId\": 1,\r
+
+    \  \"departmentId\": 1,\r
+
+    \  \"subject\": \"Fresh test for status history\",\r
+
+    \  \"description\": \"This one is created after the logging fix\",\r
+
+    \  \"requestType\": \"NORMAL\"\r
+
+    }"
+order: 4503095172619337

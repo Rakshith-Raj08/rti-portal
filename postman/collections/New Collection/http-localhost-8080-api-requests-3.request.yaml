@@ -1,0 +1,21 @@
+$kind: http-request
+name: http://localhost:8080/api/requests
+description: ""
+url: http://localhost:8080/api/requests
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"userId\": 1,\r
+
+    \  \"departmentId\": 1,\r
+
+    \  \"subject\": \"Testing full status history\",\r
+
+    \  \"description\": \"Checking that FILED gets logged automatically\",\r
+
+    \  \"requestType\": \"NORMAL\"\r
+
+    }"
+order: 4498353498864110
